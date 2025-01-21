@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thinking</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Azaret Mono', monospace;
+            background-color: #f4efe9; /* Light earthy tone */
+            color: #3e4e39; /* Dark earthy neutral */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem; /* Same size as the original h1 */
+            cursor: pointer;
+        }
+
+        h3 {
+            font-size: 0.8rem; /* Same size as the original h1 */
+            cursor: pointer;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+      
+        a {
+            text-decoration: none;
+            color: #393530;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+      
+
+        /* Wave effect for subtitle */
+        h2 span {
+            display: inline-block;
+            transition: transform 0.1s ease;
+        }
+
+        button {
+            padding: 3px;
+            background-color: #81ac52;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #ee9fdb;
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+    <header>
+        <h1>dreams</h1>
+    </header>
+    <div class="marquee"> 
+        <marquee>currently : in bed </marquee>
+    </div>
+    <main>
+        <section class="section about">
+            
+            <h2></h2>
+            <br>
+            <p>L. dreamed about.</p>
+            <p>soundsystem</p>
+            <p>cavern</p>
+            <br>
+            <h3>i would imagine the sound person had a lot of trouble controlling the sound</h3>
+        </section>
+
+       
+            <br>
+   
+        </section>
+           
+       
+    </main>
+
+    <footer>
+        <p>2024 el debattista</p>
+    </footer>
+
+   
+</body>
+</html>
