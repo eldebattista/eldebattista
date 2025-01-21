@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Debattista</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Azaret Mono', monospace;
+            background-color: #f4efe9; /* Light earthy tone */
+            color: #3e4e39; /* Dark earthy neutral */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem; /* Same size as the original h1 */
+            cursor: pointer;
+        }
+
+        h3 {
+            font-size: 1.5rem; /* Same size as the original h1 */
+            cursor: pointer;
+        }
+
+        .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+        .section {
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .portfolio-title {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-title:hover {
+            color: #7b6d58; /* Subtle earthy highlight */
+        }
+
+        .hover-image {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 400px;
+            max-height: 300px;
+            border: 2px solid #2f2e2d;
+            border-radius: 5px;
+            background-color: #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .portfolio-title:hover + .hover-image {
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #393530;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #7b6d58;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #b37b7b;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #555;
+        }
+
+        /* Ensure text is not visible through hover image */
+        .portfolio-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .portfolio-container .hover-image {
+            pointer-events: none;
+        }
+
+        /* Wave effect for subtitle */
+        h2 span {
+            display: inline-block;
+            transition: transform 0.1s ease;
+        }
+
+        button {
+            padding: 7px;
+            background-color: #a7c389;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #9fcaee;
+        }
+
+        .download-button {
+            padding: 3px;
+            background-color: #81ac52;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 1px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .download-button:hover {
+            background-color: #ee9fdb;
+        }
+
+
+    </style>
+    
+</head>
+<body>
+    
+    <header>
+        <h1>welcome</h1>
+    </header>
+    <IMG SRC="/img/catturn.gif"width="300" height="290"class="center">
+    <div class="marquee"> 
+        <marquee>currently : in studio </marquee>
+    </div>
+    <main>
+        <section class="section about">
+            
+            <h2>\\\</h2>
+            <br>
+            <p>L. El Debattista is an NYC-born and based artist focused on gender identity, religion, power dynamics, and the interplay between. Their work reflects the push-pull dynamic of transgender hyper visibility and persecution in the 2020s, and the restriction of growing up queer under a Catholic government.</p>
+        </section>
+
+        <section class="section portfolio">
+            <h2 id="sculpture">
+                <span>s</span>
+                <span>c</span>
+                <span>u</span>
+                <span>l</span>
+                <span>p</span>
+                <span>t</span>
+                <span>u</span>
+                <span>r</span>
+                <span>e</span>
+            </h2>
+            
+                <br> <br>
+            </div>
+            <div class="portfolio-container">
+                <a href="#lightbox2" class="portfolio-title">barr bodies 2024</a>
+                <img src="/img/edit_bodybuilder_sculpture-5.jpg" alt="Project 2" class="hover-image">
+                <div id="lightbox2" class="lightbox">
+                    <a href="#" class="lightbox-close">&times;</a>
+                    <img src="/img/edit_bodybuilder_sculpture-4.jpg" alt="Project 2">
+                </div>
+            </div>
+            <br> <br>
+            <div class="portfolio-container">
+                <a href="#lightbox1" class="portfolio-title">għarukaza 2023</a>
+                <img src="/img/werewolf_1.jpeg" alt="Project 1" class="hover-image">
+                <div id="lightbox1" class="lightbox">
+                    <a href="#" class="lightbox-close">&times;</a>
+                    <img src="/img/werewolf_1.jpeg" alt="Project 1">
+                </div>
+            <br> <br
+            <br
+        </div>
+        <div class="portfolio-container">
+            <a href="#lightbox3" class="portfolio-title">pleaser 2023</a>
+            <img src="/img/vacuum_sculpture.JPG" alt="Project 3" class="hover-image">
+            <div id="lightbox3" class="lightbox">
+                <a href="#" class="lightbox-close">&times;</a>
+                <img src="/img/vacuum_sculpture.JPG" alt="Project 3">
+            </div>
+
+            <br>
+            <br>
+            <!-- Button to trigger the resume DOWNLOAD -->
+<a href="/pdf/CNCresume.pdf" download="ElResume" class="download-button">resume</a>
+<br>
+            <IMG SRC="/img/orangeturn.gif"width="350" height="300">
+<br>
+
+
+        <section class="section contact">
+            <h3>Contact</h3>
+            
+            <p>Feel free to reach out at <a href="mailto:&#x64;&#x65;&#x62;&#x61;&#x74;&#x74;&#x69;&#x73;&#x74;&#x61;&#x2e;&#x65;&#x6c;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">debattista.el[at]gmail.com</a></p>
+        </section>
+   
+ <!-- dreams popups -->
+
+    <!-- Button to trigger the dreams popup -->
+<button class="popup-button" onclick="openDreamsPopup()">dreaming</button>
+
+<!-- Button to trigger the dreams2 popup -->
+<button class="popup-button" onclick="openDreams2Popup()">of</button>
+
+<!-- Button to trigger the dreams3 popup -->
+<button class="popup-button" onclick="openDreams3Popup()">...</button>
+
+<script>
+         // Function to open the dreams popup window
+         function openDreamsPopup() {
+        window.open(
+            'page1', // URL for the dreams popup
+            'dreamsPopupWindow', // Unique name for the dreams popup window
+            'width=600,height=400,scrollbars=no,resizable=no' // Window properties
+        );
+    }
+    
+   // Function to open the dreams2 popup window
+   function openDreams2Popup() {
+        window.open(
+            'page2', // URL for the dreams popup
+            'dreams2PopupWindow', // Unique name for the thoughts popup window
+            'width=600,height=400,scrollbars=no,resizable=no' // Window properties
+        );
+    }
+
+ // Function to open the dreams3 popup window
+ function openDreams3Popup() {
+        window.open(
+            'page3', // URL for the dreams popup
+            'dreams3PopupWindow', // Unique name for the thoughts popup window
+            'width=600,height=400,scrollbars=no,resizable=no' // Window properties
+        );
+    }
+
+</script>
+
+    <footer>
+        <br>
+        <p>2024 el debattista</p>
+    </footer>
+
+    <script>
+        const sculptureHeading = document.querySelector('#sculpture');
+        const letters = sculptureHeading.querySelectorAll('span');
+
+        sculptureHeading.addEventListener('mousemove', (e) => {
+            const { clientX: mouseX, clientY: mouseY } = e;
+            letters.forEach((letter, index) => {
+                const xOffset = (mouseX - window.innerWidth / 2) / 20 * (index % 2 === 0 ? 1 : -1);
+                const yOffset = (mouseY - window.innerHeight / 2) / 20 * (index % 2 === 0 ? -1 : 1);
+
+                letter.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        sculptureHeading.addEventListener('mouseleave', () => {
+            letters.forEach((letter) => {
+                letter.style.transform = 'translate(0, 0)';
+            });
+        });
+    </script>
+</body>
+</html>
