@@ -31,12 +31,22 @@
         }
 
         h2 {
-            font-size: 2.5rem; /* Same size as the original h1 */
+            font-size: 2.5rem; /* sculpture title*/
             cursor: pointer;
         }
 
         h3 {
             font-size: 1.5rem; /* Same size as the original h1 */
+            cursor: pointer;
+        }
+
+        h4 {
+            font-size: 1.75rem; /* second title */
+            cursor: pointer;
+        }
+
+        h5 {
+            font-size: 1 rem; /* sub title */
             cursor: pointer;
         }
 
@@ -110,11 +120,12 @@
         }
 
         .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 2px solid #b37b7b;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
         }
 
         .lightbox:target {
@@ -137,6 +148,30 @@
         .lightbox-close:hover {
             background: #555;
         }
+
+        .lightbox figure {
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: 0;
+  text-align: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.lightbox-caption {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #eee;
+  text-align: center;
+  font-style: italic;
+}
 
         /* Ensure text is not visible through hover image */
         .portfolio-container {
@@ -179,6 +214,61 @@
         .download-button:hover {
             background-color: #ee9fdb;
         }
+        .download-button2 {
+            padding: 7px;
+            background-color: #ef83cd;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 1px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .download-button2:hover {
+            background-color: #ee9fdb;
+        }
+
+        .carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* 100% x number of images */
+}
+
+.carousel-slide img {
+  width: 100%;
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
 
 
     </style>
@@ -189,11 +279,13 @@
     <header>
         <h1>welcome</h1>
     </header>
+    
     <IMG SRC="/img/catturn.gif"width="300" height="290"class="center">
     <div class="marquee"> 
-        <marquee>currently : out of studio </marquee>
+        <marquee>currently : in studio </marquee>
     </div>
     <main>
+        
         <section class="section about">
             
             <h2>\\\</h2>
@@ -215,49 +307,194 @@
             </h2>
             
                 <br> <br>
+
+                <IMG SRC="/img/edit_bodybuilder_sculpture-5.jpg"width="350" height="530">
+<br>
             </div>
             <div class="portfolio-container">
                 <a href="#lightbox2" class="portfolio-title">barr bodies 2024</a>
                 <img src="/img/edit_bodybuilder_sculpture-5.jpg" alt="Project 2" class="hover-image">
                 <div id="lightbox2" class="lightbox">
                     <a href="#" class="lightbox-close">&times;</a>
+                    <figure>
                     <img src="/img/edit_bodybuilder_sculpture-4.jpg" alt="Project 2">
+                    <figcaption class="lightbox-caption">
+                        Barr bodies (2024), insulation foam, joint compound, paint, 6’x3’
+                        
+                      </figcaption>
+                    </figure>
                 </div>
             </div>
             <br> <br>
+
+            <IMG SRC="/img/werewolf_1.jpeg"width="350" height="390">
+                <br>
+
             <div class="portfolio-container">
                 <a href="#lightbox1" class="portfolio-title">għarukaza 2023</a>
                 <img src="/img/werewolf_1.jpeg" alt="Project 1" class="hover-image">
                 <div id="lightbox1" class="lightbox">
                     <a href="#" class="lightbox-close">&times;</a>
-                    <img src="/img/werewolf_1.jpeg" alt="Project 1">
+                    <figure>
+                        <img src="/img/werewolf_1.jpeg" alt="Project 1">
+                        <figcaption class="lightbox-caption">
+                          għarukaza (2023) -  expanding foam, cloth, found object, pvc pipes, 4’x4.5’x1’
+                          
+                        </figcaption>
+                      </figure>
                 </div>
-            <br> <br
+            <br> <br>
+
+            <IMG SRC="/img/vacuum_sculpture.JPG"width="350" height="345">
+                <br>
             <br
+            
         </div>
         <div class="portfolio-container">
             <a href="#lightbox3" class="portfolio-title">pleaser 2023</a>
             <img src="/img/vacuum_sculpture.JPG" alt="Project 3" class="hover-image">
             <div id="lightbox3" class="lightbox">
                 <a href="#" class="lightbox-close">&times;</a>
+                <figure>
                 <img src="/img/vacuum_sculpture.JPG" alt="Project 3">
+                <figcaption class="lightbox-caption">
+                    Praying Figure (2023) - wood, upholstery foam, garbage bag, 1.5’x1’
+                  </figcaption>
+                </figure>
             </div>
 
-            <br>
-            <br>
-            <!-- Button to trigger the resume DOWNLOAD -->
-<a src="pdf/CV.pdf" download="ElResume" class="download-button">CV</a>
+            <br><br>
+
+            <h4>
+    
+                photography
+            </h4>
 <br>
+        
+             <!--  -->
+            <!--  -->
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                  <img src="/img/werewolf_1.jpeg" alt="Image 1">
+                  <img src="/img/werewolf_2.jpeg" alt="Image 2">
+                  <img src="/img/werewolf_3.jpeg" alt="Image 3">
+                </div>
+                <button class="carousel-btn prev">&#10094;</button>
+                <button class="carousel-btn next">&#10095;</button>
+              </div>
+              
+              <script>
+                const slide = document.querySelector('.carousel-slide');
+                const images = slide.querySelectorAll('img');
+                const prevBtn = document.querySelector('.carousel-btn.prev');
+                const nextBtn = document.querySelector('.carousel-btn.next');
+                const carouselContainer = document.querySelector('.carousel-container');
+              
+                let currentIndex = 0;
+                const totalImages = images.length;
+                let autoSlideInterval;
+              
+                function updateCarousel() {
+                  slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+              
+                function showNext() {
+                  currentIndex = (currentIndex + 1) % totalImages;
+                  updateCarousel();
+                }
+              
+                function showPrev() {
+                  currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                  updateCarousel();
+                }
+              
+                function startAutoSlide() {
+                  autoSlideInterval = setInterval(showNext, 4000);
+                }
+              
+                function stopAutoSlide() {
+                  clearInterval(autoSlideInterval);
+                }
+              
+                // Event listeners for buttons
+                nextBtn.addEventListener('click', showNext);
+                prevBtn.addEventListener('click', showPrev);
+              
+                // Pause auto-slide on hover
+                carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+                carouselContainer.addEventListener('mouseleave', startAutoSlide);
+              
+                // Start auto-slide
+                startAutoSlide();
+              
+                // --- Swipe Support ---
+                let touchStartX = 0;
+                let touchEndX = 0;
+                const swipeThreshold = 50; // minimum px for swipe
+              
+                carouselContainer.addEventListener('touchstart', e => {
+                  touchStartX = e.changedTouches[0].screenX;
+                });
+              
+                carouselContainer.addEventListener('touchend', e => {
+                  touchEndX = e.changedTouches[0].screenX;
+                  handleSwipeGesture();
+                });
+              
+                function handleSwipeGesture() {
+                  const swipeDistance = touchEndX - touchStartX;
+              
+                  if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                      showPrev(); // swipe right
+                    } else {
+                      showNext(); // swipe left
+                    }
+                  }
+                }
+              </script>
+              
+              
+            <br><br>
+
+<h4>
+    
+    other projects 
+</h4>
+
+<h5>
+    Paperthirst Zines - <a href="https://paperthirst.neocities.org" class="button5">Site Link</a>
+   
+   <style>
+    button5 {
+        padding: 7px;
+        background-color: #a7c389;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 19px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+</style>
+
+</h5>
+<br> 
             <IMG SRC="/img/orangeturn.gif"width="350" height="300">
 <br>
 
 
+    <br>
         <section class="section contact">
             <h3>Contact</h3>
             
             <p>Feel free to reach out at <a href="mailto:&#x64;&#x65;&#x62;&#x61;&#x74;&#x74;&#x69;&#x73;&#x74;&#x61;&#x2e;&#x65;&#x6c;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">debattista.el[at]gmail.com</a></p>
         </section>
-   
+       
+    
+        <!-- Button to trigger the resume DOWNLOAD -->
+        <a href="/pdf/CNCresume.pdf" download="ElResume" class="download-button2">resume</a>
+        <br>
+      <br>
  <!-- dreams popups -->
 
     <!-- Button to trigger the dreams popup -->
