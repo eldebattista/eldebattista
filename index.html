@@ -227,7 +227,9 @@
             background-color: #ee9fdb;
         }
 
-        .carousel-container {
+        /* photography carosel */
+
+.carousel-container {
   position: relative;
   width: 90%;
   max-width: 600px;
@@ -270,9 +272,39 @@
   right: 10px;
 }
 
+/* photography lightbox */
+.image-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image-lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
 
     </style>
     
+
 </head>
 <body>
     
@@ -351,7 +383,7 @@
             
         </div>
         <div class="portfolio-container">
-            <a href="#lightbox3" class="portfolio-title">pleaser 2023</a>
+            <a href="#lightbox3" class="portfolio-title">prayer 2023</a>
             <img src="/img/vacuum_sculpture.JPG" alt="Project 3" class="hover-image">
             <div id="lightbox3" class="lightbox">
                 <a href="#" class="lightbox-close">&times;</a>
@@ -364,6 +396,7 @@
             </div>
 
             <br><br>
+            <br><br>
 
             <h4>
     
@@ -371,13 +404,22 @@
             </h4>
 <br>
         
-             <!--  -->
-            <!--  -->
+             <!-- lightbox photography -->
+             <div class="image-lightbox" id="imageLightbox">
+                <span class="lightbox-close" id="lightboxClose">&times;</span>
+                <img src="" alt="Expanded image" id="lightboxImg">
+              </div>
+
+            <!-- photography carosel -->
             <div class="carousel-container">
                 <div class="carousel-slide">
-                  <img src="/img/werewolf_1.jpeg" alt="Image 1">
-                  <img src="/img/werewolf_2.jpeg" alt="Image 2">
-                  <img src="/img/werewolf_3.jpeg" alt="Image 3">
+                  <img src="/img/photography/junglasurf2.JPG" alt="junglasurf2">
+                  <img src="/img/photography/b_laugh.jpg" alt="b_laugh">
+                  <img src="/img/photography/willyshrine.jpg" alt="willyshrine">
+                  <img src="/img/photography/mrkims.JPG" alt="mrkims">
+                  <img src="/img/photography/thrasher2019.jpg" alt="thrasher2019">
+              
+
                 </div>
                 <button class="carousel-btn prev">&#10094;</button>
                 <button class="carousel-btn next">&#10095;</button>
@@ -452,6 +494,41 @@
                     }
                   }
                 }
+
+                // Lightbox for carousel images
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+// Click any image in the carousel
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+
+    // Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  } else if (e.key === 'ArrowRight') {
+    showNext();
+  } else if (e.key === 'ArrowLeft') {
+    showPrev();
+  }
+});
+  });
+});
+
+// Close lightbox on click of X or outside image
+lightboxClose.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
               </script>
               
               
@@ -463,15 +540,15 @@
 </h4>
 
 <h5>
-    Paperthirst Zines - <a href="https://paperthirst.neocities.org" class="button5">Site Link</a>
-   
+    Paperthirst Zines - <a href="https://paperthirst.neocities.org" class="button5">Link</a>
+
    <style>
-    button5 {
-        padding: 7px;
+    a.button5 {
+        padding: 5px;
         background-color: #a7c389;
         color: rgb(255, 255, 255);
         border: none;
-        border-radius: 19px;
+        border-radius: 10px;
         cursor: pointer;
         font-size: 1rem;
     }
