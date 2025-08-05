@@ -591,137 +591,134 @@ lightbox.addEventListener('click', e => {
             background-color: #6cb2eb;
         }
 </style>
-<br><br>
+<br>
 
-<!-- Secondary Lightbox Carousel -->
+<!-- Fliers Section -->
+<div class="fliers-gallery">
+  <img src="/img/fliers/8ballposter.jpg" alt="8ballposter" width="130">
+  <img src="/img/fliers/8balltv-gear.png" alt="8balltv gear" width="150">
+  <img src="/img/fliers/8ball_armsangel2.png" alt="arms angel" width="100">
+  <img src="/img/fliers/aftershock-flier.jpg" alt="aftershock flier" width="200">
+  <img src="/img/fliers/8ball_leads.jpg" alt="8ball leads" width="120">
+</div>
+
+<!-- Modal for enlarged image -->
+<div class="img-modal" id="imgModal">
+  <span class="img-modal-close" id="imgModalClose">&times;</span>
+  <img class="img-modal-content" id="imgModalImg" src="" alt="">
+</div>
+
 <style>
-  /* Secondary Carousel Styles */
-  .lightbox2 {
+  /* Responsive Fliers Gallery */
+  .fliers-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .fliers-gallery img {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    height: auto;
+  }
+
+  .fliers-gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal Styles */
+  .img-modal {
     display: none;
     position: fixed;
-    z-index: 9999;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
   }
 
-  .lightbox2.active { display: flex; }
-
-  .lightbox2-content {
-    position: relative;
-    max-width: 70%;
-    max-height: 70%;
+  .img-modal.active {
+    display: flex;
   }
 
-  .lightbox2-content img {
-    width: 100%;
-    height: auto;
-    border: 3px solid white;
+  .img-modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border: none;
   }
 
-  .lightbox2-close,
-  .lightbox2-prev,
-  .lightbox2-next {
+  .img-modal-close {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20px;
+    right: 30px;
     color: white;
     font-size: 2em;
+    font-weight: bold;
     cursor: pointer;
-    z-index: 10000;
     user-select: none;
   }
 
-  .lightbox2-close {
-    top: 20px;
-    right: 30px;
-    transform: none;
-    font-size: 2.5em;
+  @media (max-width: 600px) {
+    .img-modal-close {
+      font-size: 1.5em;
+      right: 15px;
+      top: 15px;
+    }
   }
-
-  .lightbox2-prev { left: -50px; }
-  .lightbox2-next { right: -50px; }
 </style>
 
-<div class="lightbox2" id="lightbox2">
-  <span class="lightbox2-close" id="lightbox2Close">&times;</span>
-  <span class="lightbox2-prev" id="lightbox2Prev">&#10094;</span>
-  <div class="lightbox2-content">
-    <img id="lightbox2Image" src="" alt="lightbox image">
-  </div>
-  <span class="lightbox2-next" id="lightbox2Next">&#10095;</span>
-</div>
-
-<!-- Thumbnails to trigger Lightbox2 -->
-<div class="lightbox2-thumbnails">
-  <img src="/img/fliers/8ballposter.jpg" class="lightbox2-thumb" alt="thumbnail 1" width="120">
-  <img src="/img/fliers/8balltv-gear.png" class="lightbox2-thumb" alt="thumbnail 2" width="150">
-  <img src="/img/fliers/8ball_armsangel2.png" class="lightbox2-thumb" alt="thumbnail 3" width="100">
-  <img src="/img/fliers/aftershock-flier.jpg" class="lightbox2-thumb" alt="thumbnail 3" width="200">
-  <img src="/img/fliers/8ball_leads.jpg" class="lightbox2-thumb" alt="thumbnail 3" width="150">
-
-</div>
-
 <script>
-  // Secondary Carousel Script
+  // Click-to-Enlarge Modal Script
   document.addEventListener('DOMContentLoaded', () => {
-    const lightbox2 = document.getElementById('lightbox2');
-    const lightbox2Image = document.getElementById('lightbox2Image');
-    const closeBtn2 = document.getElementById('lightbox2Close');
-    const prevBtn2 = document.getElementById('lightbox2Prev');
-    const nextBtn2 = document.getElementById('lightbox2Next');
-    const thumbs2 = document.querySelectorAll('.lightbox2-thumb');
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgModalImg');
+    const closeModal = document.getElementById('imgModalClose');
 
-    let currentIndex2 = 0;
-    const images2 = Array.from(thumbs2).map(img => img.src);
-
-    thumbs2.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        currentIndex2 = index;
-        showImage2();
-        lightbox2.classList.add('active');
+    document.querySelectorAll('.fliers-gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('active');
       });
     });
 
-    function showImage2() {
-      lightbox2Image.src = images2[currentIndex2];
-    }
-
-    closeBtn2.addEventListener('click', () => {
-      lightbox2.classList.remove('active');
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalImg.src = '';
+      modalImg.alt = '';
     });
 
-    prevBtn2.addEventListener('click', () => {
-      currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
-      showImage2();
-    });
-
-    nextBtn2.addEventListener('click', () => {
-      currentIndex2 = (currentIndex2 + 1) % images2.length;
-      showImage2();
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (!lightbox2.classList.contains('active')) return;
-      if (e.key === 'ArrowLeft') prevBtn2.click();
-      if (e.key === 'ArrowRight') nextBtn2.click();
-      if (e.key === 'Escape') closeBtn2.click();
-    });
-
-    // Optional: Click outside to close
-    lightbox2.addEventListener('click', (e) => {
-      if (e.target === lightbox2) {
-        lightbox2.classList.remove('active');
+      if (e.key === 'Escape') {
+        modal.classList.remove('active');
+        modalImg.src = '';
+        modalImg.alt = '';
       }
     });
   });
 </script>
+<br>
 
+   <!-- Button to trigger the resume DOWNLOAD -->
+   <a href="/pdf/ShopTechEl.pdf" download="ElResume" class="download-button2">resume</a>
+   <br>
 
-</h5>
-<br> 
             <IMG SRC="/img/orangeturn.gif"width="350" height="300">
 <br>
 
@@ -734,9 +731,7 @@ lightbox.addEventListener('click', e => {
         </section>
        
     
-        <!-- Button to trigger the resume DOWNLOAD -->
-        <a href="/pdf/ShopTechEl.pdf.pdf" download="ElResume" class="download-button2">resume</a>
-        <br>
+     
       <br>
  <!-- dreams popups -->
 
