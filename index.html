@@ -562,14 +562,161 @@ lightbox.addEventListener('click', e => {
    <style>
     a.button5 {
         padding: 5px;
-        background-color: #a7c389;
+        background-color: #cddf57;
         color: rgb(255, 255, 255);
         border: none;
         border-radius: 10px;
         cursor: pointer;
         font-size: 1rem;
     }
+    a.button5:hover {
+            background-color: #fc95fa;
+        }
 </style>
+<br><br>
+<h5>
+  8-Ball Community - <a href="https://8ballcommunity.club" class="button6">Link</a>
+
+ <style>
+  a.button6 {
+      padding: 5px;
+      background-color: #acde76;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+  }
+  a.button6:hover {
+            background-color: #6cb2eb;
+        }
+</style>
+<br><br>
+
+<!-- Secondary Lightbox Carousel -->
+<style>
+  /* Secondary Carousel Styles */
+  .lightbox2 {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox2.active { display: flex; }
+
+  .lightbox2-content {
+    position: relative;
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  .lightbox2-content img {
+    width: 100%;
+    height: auto;
+    border: 3px solid white;
+  }
+
+  .lightbox2-close,
+  .lightbox2-prev,
+  .lightbox2-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10000;
+    user-select: none;
+  }
+
+  .lightbox2-close {
+    top: 20px;
+    right: 30px;
+    transform: none;
+    font-size: 2.5em;
+  }
+
+  .lightbox2-prev { left: -50px; }
+  .lightbox2-next { right: -50px; }
+</style>
+
+<div class="lightbox2" id="lightbox2">
+  <span class="lightbox2-close" id="lightbox2Close">&times;</span>
+  <span class="lightbox2-prev" id="lightbox2Prev">&#10094;</span>
+  <div class="lightbox2-content">
+    <img id="lightbox2Image" src="" alt="lightbox image">
+  </div>
+  <span class="lightbox2-next" id="lightbox2Next">&#10095;</span>
+</div>
+
+<!-- Thumbnails to trigger Lightbox2 -->
+<div class="lightbox2-thumbnails">
+  <img src="/img/fliers/8ballposter.jpg" class="lightbox2-thumb" alt="thumbnail 1" width="100">
+  <img src="/img/fliers/8balltv-gear.png" class="lightbox2-thumb" alt="thumbnail 2" width="150">
+  <img src="/img/fliers/8ball_armsangel2.png" class="lightbox2-thumb" alt="thumbnail 3" width="100">
+  <img src="/img/fliers/aftershock-flier.jpg" class="lightbox2-thumb" alt="thumbnail 3" width="200">
+</div>
+
+<script>
+  // Secondary Carousel Script
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox2 = document.getElementById('lightbox2');
+    const lightbox2Image = document.getElementById('lightbox2Image');
+    const closeBtn2 = document.getElementById('lightbox2Close');
+    const prevBtn2 = document.getElementById('lightbox2Prev');
+    const nextBtn2 = document.getElementById('lightbox2Next');
+    const thumbs2 = document.querySelectorAll('.lightbox2-thumb');
+
+    let currentIndex2 = 0;
+    const images2 = Array.from(thumbs2).map(img => img.src);
+
+    thumbs2.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        currentIndex2 = index;
+        showImage2();
+        lightbox2.classList.add('active');
+      });
+    });
+
+    function showImage2() {
+      lightbox2Image.src = images2[currentIndex2];
+    }
+
+    closeBtn2.addEventListener('click', () => {
+      lightbox2.classList.remove('active');
+    });
+
+    prevBtn2.addEventListener('click', () => {
+      currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+      showImage2();
+    });
+
+    nextBtn2.addEventListener('click', () => {
+      currentIndex2 = (currentIndex2 + 1) % images2.length;
+      showImage2();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox2.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') prevBtn2.click();
+      if (e.key === 'ArrowRight') nextBtn2.click();
+      if (e.key === 'Escape') closeBtn2.click();
+    });
+
+    // Optional: Click outside to close
+    lightbox2.addEventListener('click', (e) => {
+      if (e.target === lightbox2) {
+        lightbox2.classList.remove('active');
+      }
+    });
+  });
+</script>
+
 
 </h5>
 <br> 
