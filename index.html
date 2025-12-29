@@ -345,7 +345,7 @@
                 <span>r</span>
                 <span>e</span>
             </h2>
-            
+        
                 <br> <br>
 
                 <IMG SRC="/img/edit_bodybuilder_sculpture-5.jpg"width="350" height="530">
@@ -745,11 +745,12 @@ lightbox.addEventListener('click', e => {
 <!-- Button to trigger the dreams3 popup -->
 <button class="popup-button" onclick="openDreams3Popup()">...</button>
 
+
 <script>
          // Function to open the dreams popup window
          function openDreamsPopup() {
         window.open(
-            'page1', // URL for the dreams popup
+            'page1.html', // URL for the dreams popup
             'dreamsPopupWindow', // Unique name for the dreams popup window
             'width=600,height=400,scrollbars=no,resizable=no' // Window properties
         );
@@ -758,7 +759,7 @@ lightbox.addEventListener('click', e => {
    // Function to open the dreams2 popup window
    function openDreams2Popup() {
         window.open(
-            'page2', // URL for the dreams popup
+            'page2.html', // URL for the dreams popup
             'dreams2PopupWindow', // Unique name for the thoughts popup window
             'width=600,height=400,scrollbars=no,resizable=no' // Window properties
         );
@@ -767,7 +768,7 @@ lightbox.addEventListener('click', e => {
  // Function to open the dreams3 popup window
  function openDreams3Popup() {
         window.open(
-            'page3', // URL for the dreams popup
+            'page3.html', // URL for the dreams popup
             'dreams3PopupWindow', // Unique name for the thoughts popup window
             'width=600,height=400,scrollbars=no,resizable=no' // Window properties
         );
@@ -775,10 +776,34 @@ lightbox.addEventListener('click', e => {
 
 </script>
 
+<br><br>
+
+<style>
+  .button7 {
+    padding: 8px;
+    background-color: #a6b6ff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 19px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .button7:hover {
+    background-color: #cca7ff;
+  }
+</style>
+
+<button class="button7" onclick="window.open('thoughts.html', '_blank')">
+  ?
+</button>
+
+
     <footer>
         <br>
-        <p>2025 el debattista</p>
+        <p>2026 el debattista</p>
     </footer>
+
 
     <script>
         const sculptureHeading = document.querySelector('#sculpture');
